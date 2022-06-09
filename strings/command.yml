@@ -11,29 +11,29 @@
 # Commands in Every Language
 
 # Bot Commands
-PING_COMMAND : ["ping"]
+PING_COMMAND : ["ping", "بينج"]
 START_COMMAND : ["start"]
-HELP_COMMAND : ["help"]
-SETTINGS_COMMAND : ["settings", "setting"]
-RELOAD_COMMAND : ["admincache", "reload"]
+HELP_COMMAND : ["help", "الاوامر"]
+SETTINGS_COMMAND : ["settings", "setting", "الاوامر"]
+RELOAD_COMMAND : ["admincache", "reload", "تحديث"]
 GSTATS_COMMAND : ["gstats"]
 STATS_COMMAND : ["stats"]
-LANGUAGE_COMMAND : ["lang", "language", "langs"]
+LANGUAGE_COMMAND : ["lang", "language", "langs", "اللغه"]
 
 # Play Commands
-PLAY_COMMAND : ["play", "vplay", "cplay", "cvplay", "playforce", "vplayforce", "cplayforce", "cvplayforce"]
+PLAY_COMMAND : ["play", "vplay", "cplay", "cvplay", "playforce", "vplayforce", "cplayforce", "cvplayforce", "تشغيل", "شغل"]
 PLAYMODE_COMMAND : ["playmode"]
-CHANNELPLAY_COMMAND : ["channelplay"]
-STREAM_COMMAND : ["stream", "cstream", "streamforce"]
+CHANNELPLAY_COMMAND : ["channelplay", "تشغيل"]
+STREAM_COMMAND : ["stream", "cstream", "streamforce", "تشغيل"]
 
 #Playlists Command
-PLAYLIST_COMMAND : ["playlist"]
+PLAYLIST_COMMAND : ["playlist", "قائمة التشغيل"]
 DELETEPLAYLIST_COMMAND : ["deleteplaylist"]
 
 
 # Tools
 QUEUE_COMMAND : ["queue","cqueue", "player", "cplayer", "playing", "cplaying"]
-SONG_COMMAND : ["song", "video"]
+SONG_COMMAND : ["song", "video", "اغنيه"]
 LYRICS_COMMAND : ["lyrics"]
 
 
@@ -41,23 +41,23 @@ LYRICS_COMMAND : ["lyrics"]
 AUTH_COMMAND : ["auth"]
 UNAUTH_COMMAND : ["unauth"]
 AUTHUSERS_COMMAND : ["authusers"]
-PAUSE_COMMAND : ["pause", "cpause"]
-RESUME_COMMAND : ["resume", "cresume"]
-MUTE_COMMAND : ["mute", "cmute"]
-UNMUTE_COMMAND : ["unmute", "cunmute"]
-STOP_COMMAND : ["stop", "end", "cstop", "cend"]
-SKIP_COMMAND : ["skip", "cskip"]
-SHUFFLE_COMMAND : ["shuffle", "cshuffle"]
-LOOP_COMMAND : ["loop", "cloop"]
+PAUSE_COMMAND : ["pause", "cpause", "وقف"]
+RESUME_COMMAND : ["resume", "cresume", "استمرار"]
+MUTE_COMMAND : ["mute", "cmute", "ميوت"]
+UNMUTE_COMMAND : ["unmute", "cunmute", "الغاء الكتم"]
+STOP_COMMAND : ["stop", "end", "cstop", "cend", "ايقاف"]
+SKIP_COMMAND : ["skip", "cskip", "تخطي"]
+SHUFFLE_COMMAND : ["shuffle", "cshuffle", "عشوائيه"]
+LOOP_COMMAND : ["loop", "cloop", "تكرار"]
 SEEK_COMMAND : ["seek", "cseek", "seekback", "cseekback"]
-RESTART_COMMAND : ["restart"]
+RESTART_COMMAND : ["restart", "ريستارت"]
 
 # Sudo Users Commaands
 
 # Sudo Command
-ADDSUDO_COMMAND : ["addsudo"]
-DELSUDO_COMMAND : ["delsudo"]
-SUDOUSERS_COMMAND : ["sudolist"]
+ADDSUDO_COMMAND : ["addsudo", "رفع مطور"]
+DELSUDO_COMMAND : ["delsudo", "تنزيل مطور"]
+SUDOUSERS_COMMAND : ["sudolist", "المطورين"]
 
 #Broadcast 
 BROADCAST_COMMAND : ["broadcast"]
@@ -85,8 +85,8 @@ VARS_COMMAND : ["vars", "config"]
 
 
 #Basic Bot Commands
-UPDATE_COMMAND : ["update"]
-REBOOT_COMMAND : ["reboot"]
+UPDATE_COMMAND : ["update", "ترقيه"]
+REBOOT_COMMAND : ["reboot", "اعادة تشغيل"]
 AUTOEND_COMMAND : ["autoend"]
 
 #Private Bot Mode
@@ -95,9 +95,9 @@ UNAUTHORIZE_COMMAND : ["unauthorize"]
 AUTHORIZED_COMMAND : ["authorized"]
 
 #Block Users Command
-BLOCK_COMMAND : ["block"]
-UNBLOCK_COMMAND : ["unblock"]
-BLOCKED_COMMAND : ["blockedusers"]
+BLOCK_COMMAND : ["block", "بلوك"]
+UNBLOCK_COMMAND : ["unblock", "الغاء البلوك"]
+BLOCKED_COMMAND : ["blockedusers", "المتبلكين"]
 
 #sPEEDTEST
 SPEEDTEST_COMMAND : ["speedtest"]
