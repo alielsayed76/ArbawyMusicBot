@@ -14,7 +14,7 @@
 PING_COMMAND : ["ping", "بينج"]
 START_COMMAND : ["start"]
 HELP_COMMAND : ["help", "الاوامر"]
-SETTINGS_COMMAND : ["settings", "setting", "الاوامر"]
+SETTINGS_COMMAND : ["settings", "setting", "الاعدادات"]
 RELOAD_COMMAND : ["admincache", "reload", "تحديث"]
 GSTATS_COMMAND : ["gstats"]
 STATS_COMMAND : ["stats"]
