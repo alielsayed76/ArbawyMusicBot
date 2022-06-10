@@ -22,7 +22,7 @@ RESUME_COMMAND = get_command("RESUME_COMMAND")
 
 
 @app.on_message(
-    filters.command(RESUME_COMMAND)
+    filters.command(RESUME_COMMAND,None)
     & filters.group
     & ~filters.edited
     & ~BANNED_USERS
