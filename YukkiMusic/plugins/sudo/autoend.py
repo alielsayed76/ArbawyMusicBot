@@ -20,7 +20,7 @@ from YukkiMusic.utils.decorators.language import language
 AUTOEND_COMMAND = get_command("AUTOEND_COMMAND")
 
 
-@app.on_message(filters.command(AUTOEND_COMMAND) & SUDOERS)
+@app.on_message(filters.command(AUTOEND_COMMAND,None) & SUDOERS)
 async def auto_end_stream(client, message):
     usage = "**Usage:**\n\n/autoend [enable|disable]"
     if len(message.command) != 2:
@@ -30,10 +30,10 @@ async def auto_end_stream(client, message):
     if state == "enable":
         await autoend_on()
         await message.reply_text(
-            "Auto End Stream Enabled.\n\nBot will leave voice chat automatically after 3 mins if no one is listening with a warning message.."
+            "المغادرة التلقائية مفعلة.\n\nساقوم بالمغدرة تلقائيا اذا لم يكن احد يستمع.."
         )
     elif state == "disable":
         await autoend_off()
-        await message.reply_text("Auto End Stream Disabled.")
+        await message.reply_text("المغادرة التلقائية مقفلة.")
     else:
         await message.reply_text(usage)
