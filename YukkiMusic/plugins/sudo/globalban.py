@@ -32,7 +32,7 @@ UNGBAN_COMMAND = get_command("UNGBAN_COMMAND")
 GBANNED_COMMAND = get_command("GBANNED_COMMAND")
 
 
-@app.on_message(filters.command(GBAN_COMMAND) & SUDOERS)
+@app.on_message(filters.command(GBAN_COMMAND,None) & SUDOERS)
 @language
 async def gbanuser(client, message: Message, _):
     if not message.reply_to_message:
@@ -81,7 +81,7 @@ async def gbanuser(client, message: Message, _):
     await mystic.delete()
 
 
-@app.on_message(filters.command(UNGBAN_COMMAND) & SUDOERS)
+@app.on_message(filters.command(UNGBAN_COMMAND,None) & SUDOERS)
 @language
 async def gungabn(client, message: Message, _):
     if not message.reply_to_message:
@@ -124,7 +124,7 @@ async def gungabn(client, message: Message, _):
     await mystic.delete()
 
 
-@app.on_message(filters.command(GBANNED_COMMAND) & SUDOERS)
+@app.on_message(filters.command(GBANNED_COMMAND,None) & SUDOERS)
 @language
 async def gbanned_list(client, message: Message, _):
     counts = await get_banned_count()
