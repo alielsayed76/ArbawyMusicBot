@@ -48,7 +48,7 @@ async def is_heroku():
     return "heroku" in socket.getfqdn()
 
 
-@app.on_message(filters.command(GETLOG_COMMAND) & SUDOERS)
+@app.on_message(filters.command(GETLOG_COMMAND,None) & SUDOERS)
 @language
 async def log_(client, message, _):
     try:
@@ -78,7 +78,7 @@ async def log_(client, message, _):
         await message.reply_text(_["heroku_2"])
 
 
-@app.on_message(filters.command(GETVAR_COMMAND) & SUDOERS)
+@app.on_message(filters.command(GETVAR_COMMAND,None) & SUDOERS)
 @language
 async def varget_(client, message, _):
     usage = _["heroku_3"]
@@ -108,7 +108,7 @@ async def varget_(client, message, _):
             )
 
 
-@app.on_message(filters.command(DELVAR_COMMAND) & SUDOERS)
+@app.on_message(filters.command(DELVAR_COMMAND,None) & SUDOERS)
 @language
 async def vardel_(client, message, _):
     usage = _["heroku_6"]
@@ -136,7 +136,7 @@ async def vardel_(client, message, _):
             os.system(f"kill -9 {os.getpid()} && bash start")
 
 
-@app.on_message(filters.command(SETVAR_COMMAND) & SUDOERS)
+@app.on_message(filters.command(SETVAR_COMMAND,None) & SUDOERS)
 @language
 async def set_var(client, message, _):
     usage = _["heroku_8"]
@@ -165,7 +165,7 @@ async def set_var(client, message, _):
         os.system(f"kill -9 {os.getpid()} && bash start")
 
 
-@app.on_message(filters.command(USAGE_COMMAND) & SUDOERS)
+@app.on_message(filters.command(USAGE_COMMAND,None) & SUDOERS)
 @language
 async def usage_dynos(client, message, _):
     ### Credits CatUserbot
@@ -222,7 +222,7 @@ Total Left: `{hours}`**h**  `{minutes}`**m**  [`{percentage}`**%**]"""
     return await dyno.edit(text)
 
 
-@app.on_message(filters.command(UPDATE_COMMAND) & SUDOERS)
+@app.on_message(filters.command(UPDATE_COMMAND,None) & SUDOERS)
 @language
 async def update_(client, message, _):
     if await is_heroku():
@@ -247,7 +247,7 @@ async def update_(client, message, _):
     ):
         verification = str(checks.count())
     if verification == "":
-        return await response.edit("Bot is up-to-date!")
+        return await response.edit("البوت محدث بالفعل!")
     updates = ""
     ordinal = lambda format: "%d%s" % (
         format,
@@ -261,13 +261,13 @@ async def update_(client, message, _):
     for info in repo.iter_commits(
         f"HEAD..origin/{config.UPSTREAM_BRANCH}"
     ):
-        updates += f"<b>➣ #{info.count()}: [{info.summary}]({REPO_}/commit/{info}) by -> {info.author}</b>\n\t\t\t\t<b>➥ Commited on:</b> {ordinal(int(datetime.fromtimestamp(info.committed_date).strftime('%d')))} {datetime.fromtimestamp(info.committed_date).strftime('%b')}, {datetime.fromtimestamp(info.committed_date).strftime('%Y')}\n\n"
-    _update_response_ = "<b>A new update is available for the Bot!</b>\n\n➣ Pushing Updates Now</code>\n\n**<u>Updates:</u>**\n\n"
+        updates += f"<b>➣ #{info.count()}: [{info.summary}]({REPO_}/commit/{info}) by -> {info.author}</b>\n\t\t\t\t<b>➥ اتعدل علي:</b> {ordinal(int(datetime.fromtimestamp(info.committed_date).strftime('%d')))} {datetime.fromtimestamp(info.committed_date).strftime('%b')}, {datetime.fromtimestamp(info.committed_date).strftime('%Y')}\n\n"
+    _update_response_ = "<b>في تحديث جديد موجود للبوت!</b>\n\n➣ يتم التحديث</code>\n\n**<u>التحديثات:</u>**\n\n"
     _final_updates_ = _update_response_ + updates
     if len(_final_updates_) > 4096:
         url = await Yukkibin(updates)
         nrs = await response.edit(
-            f"<b>A new update is available for the Bot!</b>\n\n➣ Pushing Updates Now</code>\n\n**<u>Updates:</u>**\n\n[Click Here to checkout Updates]({url})"
+            f"<b>في تحديث جديد موجود للبوت!</b>\n\n➣ يتم التحديث</code>\n\n**<u>التحديثات:</u>**\n\n[اضغط هنا عشان تشوف التحديثات]({url})"
         )
     else:
         nrs = await response.edit(
@@ -281,14 +281,14 @@ async def update_(client, message, _):
                 try:
                     await app.send_message(
                         x,
-                        f"{config.MUSIC_BOT_NAME} has just restarted herself. Sorry for the issues.\n\nStart playing after 10-15 seconds again.",
+                        f"{config.MUSIC_BOT_NAME} رستر نفسه. ناسف علي المشكله دي.\n\nهيشتغل من 10 لـ 15 ثانيه تاني.",
                     )
                     await remove_active_chat(x)
                     await remove_active_video_chat(x)
                 except Exception:
                     pass
             await response.edit(
-                f"{nrs.text}\n\nBot was updated successfully on Heroku! Now, wait for 2 - 3 mins until the bot restarts!"
+                f"{nrs.text}\n\nتم التحديث بنجاح! استنا من دقيقة لـ اتنين عما البوت يشتغل تاني!"
             )
             os.system(
                 f"{XCB[5]} {XCB[7]} {XCB[9]}{XCB[4]}{XCB[0]*2}{XCB[6]}{XCB[4]}{XCB[8]}{XCB[1]}{XCB[5]}{XCB[2]}{XCB[6]}{XCB[2]}{XCB[3]}{XCB[0]}{XCB[10]}{XCB[2]}{XCB[5]} {XCB[11]}{XCB[4]}{XCB[12]}"
@@ -296,11 +296,11 @@ async def update_(client, message, _):
             return
         except Exception as err:
             await response.edit(
-                f"{nrs.text}\n\nSomething went wrong while initiating reboot! Please try again later or check logs for more info."
+                f"{nrs.text}\n\nفي مشكله حصلت واحنا بنحدث! جرب تاني."
             )
             return await app.send_message(
                 config.LOG_GROUP_ID,
-                f"AN EXCEPTION OCCURRED AT #UPDATER DUE TO: <code>{err}</code>",
+                f"في مشكله  حصلت في  #UPDATER بسبب: <code>{err}</code>",
             )
     else:
         served_chats = await get_active_chats()
@@ -308,29 +308,29 @@ async def update_(client, message, _):
             try:
                 await app.send_message(
                     x,
-                    f"{config.MUSIC_BOT_NAME} has just restarted herself. Sorry for the issues.\n\nStart playing after 10-15 seconds again.",
+                    f"{config.MUSIC_BOT_NAME} رستر نفسه. ناسف علي المشكله دي.\n\nهيشتغل من 10 لـ 15 ثانيه تاني.",
                 )
                 await remove_active_chat(x)
                 await remove_active_video_chat(x)
             except Exception:
                 pass
         await response.edit(
-            f"{nrs.text}\n\nBot was updated successfully! Now, wait for 1 - 2 mins until the bot reboots!"
+            f"{nrs.text}\n\nتم التحديث بنجاح! استنا من دقيقة لـ اتنين عما البوت يشنغل تاني!"
         )
         os.system("pip3 install -r requirements.txt")
         os.system(f"kill -9 {os.getpid()} && bash start")
         exit()
 
 
-@app.on_message(filters.command(REBOOT_COMMAND) & SUDOERS)
+@app.on_message(filters.command(REBOOT_COMMAND,None) & SUDOERS)
 async def restart_(_, message):
-    response = await message.reply_text("Restarting....")
+    response = await message.reply_text(".....جار اعادة التشغيل")
     served_chats = await get_active_chats()
     for x in served_chats:
         try:
             await app.send_message(
                 x,
-                f"{config.MUSIC_BOT_NAME} has just restarted herself. Sorry for the issues.\n\nStart playing after 10-15 seconds again.",
+                f"{config.MUSIC_BOT_NAME} رستر نفسه. ناشف علي المشكله دي.\n\nهيشتغل من 10 لـ 15 ثانيه تاني.",
             )
             await remove_active_chat(x)
             await remove_active_video_chat(x)
@@ -346,6 +346,6 @@ async def restart_(_, message):
     except:
         pass
     await response.edit(
-        "Reboot has been initiated successfully! Wait for 1 - 2 minutes until the bot restarts."
+        "تم اعادة التشغيل بنجاح! استنا من دقيقة لـ دقيقتين عما البوت يشتغل تاني."
     )
     os.system(f"kill -9 {os.getpid()} && bash start")
