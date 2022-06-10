@@ -23,7 +23,7 @@ PLAYMODE_COMMAND = get_command("PLAYMODE_COMMAND")
 
 
 @app.on_message(
-    filters.command(PLAYMODE_COMMAND)
+    filters.command(PLAYMODE_COMMAND,None)
     & filters.group
     & ~filters.edited
     & ~BANNED_USERS
