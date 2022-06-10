@@ -34,7 +34,7 @@ DELETEPLAYLIST_COMMAND = get_command("DELETEPLAYLIST_COMMAND")
 
 
 @app.on_message(
-    filters.command(PLAYLIST_COMMAND)
+    filters.command(PLAYLIST_COMMAND,None)
     & ~filters.edited
     & ~BANNED_USERS
 )
@@ -116,7 +116,7 @@ async def get_keyboard(_, user_id):
 
 
 @app.on_message(
-    filters.command(DELETEPLAYLIST_COMMAND)
+    filters.command(DELETEPLAYLIST_COMMAND,None)
     & filters.private
     & ~filters.edited
     & ~BANNED_USERS
