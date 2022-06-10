@@ -23,7 +23,7 @@ UNBLOCK_COMMAND = get_command("UNBLOCK_COMMAND")
 BLOCKED_COMMAND = get_command("BLOCKED_COMMAND")
 
 
-@app.on_message(filters.command(BLOCK_COMMAND) & SUDOERS)
+@app.on_message(filters.command(BLOCK_COMMAND,None) & SUDOERS)
 @language
 async def useradd(client, message: Message, _):
     if not message.reply_to_message:
@@ -56,7 +56,7 @@ async def useradd(client, message: Message, _):
     )
 
 
-@app.on_message(filters.command(UNBLOCK_COMMAND) & SUDOERS)
+@app.on_message(filters.command(UNBLOCK_COMMAND,None) & SUDOERS)
 @language
 async def userdel(client, message: Message, _):
     if not message.reply_to_message:
@@ -80,7 +80,7 @@ async def userdel(client, message: Message, _):
     await message.reply_text(_["block_4"])
 
 
-@app.on_message(filters.command(BLOCKED_COMMAND) & SUDOERS)
+@app.on_message(filters.command(BLOCKED_COMMAND,None) & SUDOERS)
 @language
 async def sudoers_list(client, message: Message, _):
     if not BANNED_USERS:
