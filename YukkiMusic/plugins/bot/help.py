@@ -29,7 +29,7 @@ HELP_COMMAND = get_command("HELP_COMMAND")
 
 
 @app.on_message(
-    filters.command(HELP_COMMAND)
+    filters.command(HELP_COMMAND,None)
     & filters.private
     & ~filters.edited
     & ~BANNED_USERS
