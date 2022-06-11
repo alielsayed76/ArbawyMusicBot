@@ -52,7 +52,7 @@ def get_duration(playing):
 
 
 @app.on_message(
-    filters.command(QUEUE_COMMAND) & filters.group & ~BANNED_USERS
+    filters.command(QUEUE_COMMAND,None) & filters.group & ~BANNED_USERS
 )
 @language
 async def ping_com(client, message: Message, _):
