@@ -21,7 +21,7 @@ from YukkiMusic.utils.formatters import convert_bytes
 VARS_COMMAND = get_command("VARS_COMMAND")
 
 
-@app.on_message(filters.command(VARS_COMMAND) & SUDOERS)
+@app.on_message(filters.command(VARS_COMMAND,None) & SUDOERS)
 async def varsFunc(client, message):
     mystic = await message.reply_text(
         "Please wait.. Getting your config"
