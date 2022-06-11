@@ -22,7 +22,7 @@ from YukkiMusic.utils.decorators.language import language
 MAINTENANCE_COMMAND = get_command("MAINTENANCE_COMMAND")
 
 
-@app.on_message(filters.command(MAINTENANCE_COMMAND) & SUDOERS)
+@app.on_message(filters.command(MAINTENANCE_COMMAND,None) & SUDOERS)
 async def maintenance(client, message: Message):
     try:
         language = await get_lang(message.chat.id)
