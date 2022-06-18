@@ -1,11 +1,4 @@
-#
-# Copyright (C) 2021-2022 by TeamYukki@Github, < https://github.com/TeamYukki >.
-#
-# This file is part of < https://github.com/TeamYukki/YukkiMusicBot > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TeamYukki/YukkiMusicBot/blob/master/LICENSE >
-#
-# All rights reserved.
+
 
 import os
 import sys
@@ -17,7 +10,7 @@ from ..logging import LOGGER
 def dirr():
     if "assets" not in listdir():
         LOGGER(__name__).warning(
-            f"Assets Folder not Found. Please clone repository again."
+            f"ملفات المساعد مش موجودهه"
         )
         sys.exit()
     for file in os.listdir():
@@ -30,4 +23,4 @@ def dirr():
         mkdir("downloads")
     if "cache" not in listdir():
         mkdir("cache")
-    LOGGER(__name__).info("Directories Updated.")
+    LOGGER(__name__).info("تم التحديث")
