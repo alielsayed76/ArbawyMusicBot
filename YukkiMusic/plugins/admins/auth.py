@@ -1,11 +1,4 @@
-#
-# Copyright (C) 2021-2022 by TeamYukki@Github, < https://github.com/TeamYukki >.
-#
-# This file is part of < https://github.com/TeamYukki/YukkiMusicBot > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TeamYukki/YukkiMusicBot/blob/master/LICENSE >
-#
-# All rights reserved.
+
 
 from pyrogram import filters
 from pyrogram.types import Message
@@ -50,10 +43,10 @@ async def auth(client, message: Message, _):
             return await message.reply_text(_["auth_1"])
         if token not in _check:
             assis = {
-                "auth_user_id": user.id,
-                "auth_name": user.first_name,
-                "admin_id": from_user_id,
-                "admin_name": from_user_name,
+                "ايديك": user.id,
+                "اسمكك": user.first_name,
+                "ايدي المالك": from_user_id,
+                "اسم المالك": from_user_name,
             }
             get = adminlist.get(message.chat.id)
             if get:
@@ -77,10 +70,10 @@ async def auth(client, message: Message, _):
         return await message.reply_text(_["auth_1"])
     if token not in _check:
         assis = {
-            "auth_user_id": user_id,
-            "auth_name": user_name,
-            "admin_id": from_user_id,
-            "admin_name": from_user_name,
+            "الايدي": user_id,
+            "الاسم": user_name,
+            "ايدي المالك": from_user_id,
+            "اسم المالك": from_user_name,
         }
         get = adminlist.get(message.chat.id)
         if get:
