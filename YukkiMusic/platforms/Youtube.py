@@ -1,11 +1,4 @@
-#
-# Copyright (C) 2021-2022 by TeamYukki@Github, < https://github.com/TeamYukki >.
-#
-# This file is part of < https://github.com/TeamYukki/YukkiMusicBot > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TeamYukki/YukkiMusicBot/blob/master/LICENSE >
-#
-# All rights reserved.
+
 
 import asyncio
 import os
@@ -31,7 +24,7 @@ async def shell_cmd(cmd):
     out, errorz = await proc.communicate()
     if errorz:
         if (
-            "unavailable videos are hidden"
+            "غير قادر علي التشغيل"
             in (errorz.decode("utf-8")).lower()
         ):
             return out.decode("utf-8")
@@ -195,10 +188,10 @@ class YouTubeAPI:
             yturl = result["link"]
             thumbnail = result["thumbnails"][0]["url"].split("?")[0]
         track_details = {
-            "title": title,
-            "link": yturl,
-            "vidid": vidid,
-            "duration_min": duration_min,
+            "الاسم": title,
+            "الرابط": yturl,
+            "الايدي": vidid,
+            "المدة بالدقايق": duration_min,
             "thumb": thumbnail,
         }
         return track_details, vidid
