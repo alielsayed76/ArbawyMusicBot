@@ -1,11 +1,4 @@
-#
-# Copyright (C) 2021-2022 by TeamYukki@Github, < https://github.com/TeamYukki >.
-#
-# This file is part of < https://github.com/TeamYukki/YukkiMusicBot > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TeamYukki/YukkiMusicBot/blob/master/LICENSE >
-#
-# All rights reserved.
+
 
 import re
 from os import path
@@ -40,10 +33,10 @@ class SoundAPI:
         xyz = path.join("downloads", f"{info['id']}.{info['ext']}")
         duration_min = seconds_to_min(info["duration"])
         track_details = {
-            "title": info["title"],
-            "duration_sec": info["duration"],
-            "duration_min": duration_min,
-            "uploader": info["uploader"],
-            "filepath": xyz,
+            "الاسم": info["title"],
+            "المدة بالثواني": info["duration"],
+            "المدة بالدقايق": duration_min,
+            "الرافع": info["uploader"],
+            "الملف": xyz,
         }
         return track_details, xyz
