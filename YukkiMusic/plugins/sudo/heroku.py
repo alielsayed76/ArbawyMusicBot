@@ -1,11 +1,4 @@
-#
-# Copyright (C) 2021-2022 by TeamYukki@Github, < https://github.com/TeamYukki >.
-#
-# This file is part of < https://github.com/TeamYukki/YukkiMusicBot > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TeamYukki/YukkiMusicBot/blob/master/LICENSE >
-#
-# All rights reserved.
+
 
 import asyncio
 import math
@@ -212,7 +205,7 @@ async def usage_dynos(client, message, _):
     AppMinutes = math.floor(AppQuotaUsed % 60)
     await asyncio.sleep(1.5)
     text = f"""
-**DYNO USAGE**
+**يتم استخدام الوضع المجاني**
 
 <u>Usage:</u>
 Total Used: `{AppHours}`**h**  `{AppMinutes}`**m**  [`{AppPercentage}`**%**]
@@ -261,13 +254,13 @@ async def update_(client, message, _):
     for info in repo.iter_commits(
         f"HEAD..origin/{config.UPSTREAM_BRANCH}"
     ):
-        updates += f"<b>➣ #{info.count()}: [{info.summary}]({REPO_}/commit/{info}) by -> {info.author}</b>\n\t\t\t\t<b>➥ اتعدل علي:</b> {ordinal(int(datetime.fromtimestamp(info.committed_date).strftime('%d')))} {datetime.fromtimestamp(info.committed_date).strftime('%b')}, {datetime.fromtimestamp(info.committed_date).strftime('%Y')}\n\n"
+        updates += f"<b>➣ #{info.count()}: [{info.summary}]({REPO_}/commit/{info}) by -> {info.author}</b>\n\t\t\t\t<b>➥ وقت العديل:</b> {ordinal(int(datetime.fromtimestamp(info.committed_date).strftime('%d')))} {datetime.fromtimestamp(info.committed_date).strftime('%b')}, {datetime.fromtimestamp(info.committed_date).strftime('%Y')}\n\n"
     _update_response_ = "<b>في تحديث جديد موجود للبوت!</b>\n\n➣ يتم التحديث</code>\n\n**<u>التحديثات:</u>**\n\n"
     _final_updates_ = _update_response_ + updates
     if len(_final_updates_) > 4096:
         url = await Yukkibin(updates)
         nrs = await response.edit(
-            f"<b>في تحديث جديد موجود للبوت!</b>\n\n➣ يتم التحديث</code>\n\n**<u>التحديثات:</u>**\n\n[اضغط هنا عشان تشوف التحديثات]({url})"
+            f"<b>في تحديث موجود</b>\n\n➣ يتم التحديث</code>\n\n**<u>التحديثات:</u>**\n\n[اضغط هنا عشان تشوف التحديثات]({url})"
         )
     else:
         nrs = await response.edit(
@@ -300,7 +293,7 @@ async def update_(client, message, _):
             )
             return await app.send_message(
                 config.LOG_GROUP_ID,
-                f"في مشكله  حصلت في  #UPDATER بسبب: <code>{err}</code>",
+                f"في مشكله حصلت بسبب: <code>{err}</code>",
             )
     else:
         served_chats = await get_active_chats()
