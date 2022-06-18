@@ -1,11 +1,4 @@
-#
-# Copyright (C) 2021-2022 by TeamYukki@Github, < https://github.com/TeamYukki >.
-#
-# This file is part of < https://github.com/TeamYukki/YukkiMusicBot > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TeamYukki/YukkiMusicBot/blob/master/LICENSE >
-#
-# All rights reserved.
+
 
 import sys
 
@@ -53,7 +46,7 @@ class Userbot(Client):
         )
 
     async def start(self):
-        LOGGER(__name__).info(f"Starting Assistant Clients")
+        LOGGER(__name__).info(f"جار التشغيل")
         if config.STRING1:
             await self.one.start()
             try:
@@ -65,11 +58,11 @@ class Userbot(Client):
             assistants.append(1)
             try:
                 await self.one.send_message(
-                    config.LOG_GROUP_ID, "Assistant Started"
+                    config.LOG_GROUP_ID, "تم تشغيل المساعد بنجاح"
                 )
             except:
                 LOGGER(__name__).error(
-                    f"Assistant Account 1 has failed to access the log Group. Make sure that you have added your assistant to your log group and promoted as admin! "
+                    f"فشل دخول المساعد للمجموعه دخله وارفعه ادمن كامل "
                 )
                 sys.exit()
             get_me = await self.one.get_me()
@@ -96,11 +89,11 @@ class Userbot(Client):
             assistants.append(2)
             try:
                 await self.two.send_message(
-                    config.LOG_GROUP_ID, "Assistant Started"
+                    config.LOG_GROUP_ID, "تم تشغيل المساعد بنجاح"
                 )
             except:
                 LOGGER(__name__).error(
-                    f"Assistant Account 2 has failed to access the log Group. Make sure that you have added your assistant to your log group and promoted as admin! "
+                    f"فشل دخول المساعد التاني للمجموعه دخله وارفعه ادمن كامل "
                 )
                 sys.exit()
             get_me = await self.two.get_me()
@@ -114,7 +107,7 @@ class Userbot(Client):
             else:
                 self.two.name = get_me.first_name
             LOGGER(__name__).info(
-                f"Assistant Two Started as {self.two.name}"
+                f"المساعد التاني اشتغل باسم {self.two.name}"
             )
         if config.STRING3:
             await self.three.start()
@@ -127,11 +120,11 @@ class Userbot(Client):
             assistants.append(3)
             try:
                 await self.three.send_message(
-                    config.LOG_GROUP_ID, "Assistant Started"
+                    config.LOG_GROUP_ID, "تم تشغيل المساعد بنجاح"
                 )
             except:
                 LOGGER(__name__).error(
-                    f"Assistant Account 3 has failed to access the log Group. Make sure that you have added your assistant to your log group and promoted as admin! "
+                    f"فشل دخول المساعد الثالث للمجموعه دخله وارفعه ادمن كامل "
                 )
                 sys.exit()
             get_me = await self.three.get_me()
@@ -145,7 +138,7 @@ class Userbot(Client):
             else:
                 self.three.name = get_me.first_name
             LOGGER(__name__).info(
-                f"Assistant Three Started as {self.three.name}"
+                f"المساعد الثالث اشتغل باسم {self.three.name}"
             )
         if config.STRING4:
             await self.four.start()
@@ -158,11 +151,11 @@ class Userbot(Client):
             assistants.append(4)
             try:
                 await self.four.send_message(
-                    config.LOG_GROUP_ID, "Assistant Started"
+                    config.LOG_GROUP_ID, "تم تشغيل المساعد بنجاح"
                 )
             except:
                 LOGGER(__name__).error(
-                    f"Assistant Account 4 has failed to access the log Group. Make sure that you have added your assistant to your log group and promoted as admin! "
+                    f"فشل دخول المساعد الرابع للمجموعه دخله وارفعه ادمن كامل "
                 )
                 sys.exit()
             get_me = await self.four.get_me()
@@ -189,11 +182,11 @@ class Userbot(Client):
             assistants.append(5)
             try:
                 await self.five.send_message(
-                    config.LOG_GROUP_ID, "Assistant Started"
+                    config.LOG_GROUP_ID, "تم تشغيل المساعد بنجاح"
                 )
             except:
                 LOGGER(__name__).error(
-                    f"Assistant Account 5 has failed to access the log Group. Make sure that you have added your assistant to your log group and promoted as admin! "
+                    f"فشل دخول المساعد الخامس للمجموعه دخله وارفعه ادمن كامل "
                 )
                 sys.exit()
             get_me = await self.five.get_me()
@@ -207,5 +200,5 @@ class Userbot(Client):
             else:
                 self.five.name = get_me.first_name
             LOGGER(__name__).info(
-                f"Assistant Five Started as {self.five.name}"
+                f"المساعد الخامس اشتغل باسم {self.five.name}"
             )
