@@ -1,11 +1,4 @@
-#
-# Copyright (C) 2021-2022 by TeamYukki@Github, < https://github.com/TeamYukki >.
-#
-# This file is part of < https://github.com/TeamYukki/YukkiMusicBot > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TeamYukki/YukkiMusicBot/blob/master/LICENSE >
-#
-# All rights reserved.
+
 
 from pyrogram.types import (InlineKeyboardButton,
                             InlineKeyboardMarkup,
@@ -47,24 +40,24 @@ async def inline_query_handler(client, query):
                 [
                     [
                         InlineKeyboardButton(
-                            text="🎥 Watch on Youtube",
+                            text="🎥 المشاهدة علي يوتيوب",
                             url=link,
                         )
                     ],
                 ]
             )
             searched_text = f"""
-❇️**Title:** [{title}]({link})
+❇️**الاسم:** [{title}]({link})
 
-⏳**Duration:** {duration} Mins
-👀**Views:** `{views}`
-⏰**Published Time:** {published}
-🎥**Channel Name:** {channel}
-📎**Channel Link:** [Visit From Here]({channellink})
+⏳**المدة:** {duration} Mins
+👀**المشاهدات:** `{views}`
+⏰**تاريخ النشر:** {published}
+🎥**اسم القناة:** {channel}
+📎**رابط القناة:** [Visit From Here]({channellink})
 
-__Reply with /play on this searched message to stream it on voice chat.__
+__رد علي الرسالة دي بـ `تشغيل` علشان تشغل الاغنية.__
 
-⚡️ ** Inline Search By {MUSIC_BOT_NAME} **"""
+⚡️ ** تم الجلب بواسطة {MUSIC_BOT_NAME} **"""
             answers.append(
                 InlineQueryResultPhoto(
                     photo_url=thumbnail,
