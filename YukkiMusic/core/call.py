@@ -288,15 +288,15 @@ class Call(PyTgCalls):
                 )
             except Exception as e:
                 raise AssistantErr(
-                    "**No Active Voice Chat Found**\n\nPlease make sure group's voice chat is enabled. If already enabled, please end it and start fresh voice chat again and if the problem continues, try /restart"
+                    "**مفيش كول شغال**\n\nاتاكد ان المكالمة مفتوحه. لو مفتوحه, اقفلها وافتحها تاني ولو المشكلة فضلت موجودة , ابعت /restart"
                 )
         except AlreadyJoinedError:
             raise AssistantErr(
-                "**Assistant Already in Voice Chat**\n\nSystems have detected that assistant is already there in the voice chat, this issue generally comes when you play 2 queries together.\n\nIf assistant is not present in voice chat, please end voice chat and start fresh voice chat again and if the  problem continues, try /restart"
+                "**الحساب المساعد موجود في الكول**\n\nلو مش موجود اقفل الكول وافتحو تاني ولو فضل في مشكلة ابعت /restart"
             )
         except TelegramServerError:
             raise AssistantErr(
-                "**Telegram Server Error**\n\nTelegram is having some internal server problems, Please try playing again.\n\n If this problem keeps coming everytime, please end your voice chat and start fresh voice chat again."
+                "**خطا في السيرفر**\n\nجرب تاني ولو منفعش اقفل الكول وافتحو تاني وابعت /restart."
             )
         await add_active_chat(chat_id)
         await mute_off(chat_id)
@@ -536,7 +536,7 @@ class Call(PyTgCalls):
         return str(round(sum(pings) / len(pings), 3))
 
     async def start(self):
-        LOGGER(__name__).info("Starting PyTgCalls Client\n")
+        LOGGER(__name__).info("جار تشغيل الحسابات المساعدة\n")
         if config.STRING1:
             await self.one.start()
         if config.STRING2:
