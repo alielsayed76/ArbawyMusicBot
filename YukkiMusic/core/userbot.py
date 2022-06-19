@@ -76,7 +76,7 @@ class Userbot(Client):
             else:
                 self.one.name = get_me.first_name
             LOGGER(__name__).info(
-                f"Assistant Started as {self.one.name}"
+                f"المساعد اشتغل باسم {self.one.name}"
             )
         if config.STRING2:
             await self.two.start()
@@ -169,7 +169,7 @@ class Userbot(Client):
             else:
                 self.four.name = get_me.first_name
             LOGGER(__name__).info(
-                f"Assistant Four Started as {self.four.name}"
+                f"الحساب الرابع اشتغل باسم {self.four.name}"
             )
         if config.STRING5:
             await self.five.start()
